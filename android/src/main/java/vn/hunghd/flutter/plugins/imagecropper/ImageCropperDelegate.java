@@ -82,6 +82,8 @@ public class ImageCropperDelegate implements PluginRegistry.ActivityResultListen
 
         UCrop cropper = UCrop.of(sourceUri, destinationUri).withOptions(options);
         if (maxWidth != null && maxHeight != null) {
+
+            // cropper.with
             cropper.withMaxResultSize(maxWidth, maxHeight);
         }
         if (ratioX != null && ratioY != null) {
@@ -228,8 +230,11 @@ public class ImageCropperDelegate implements PluginRegistry.ActivityResultListen
         } else if ("16x9".equals(name)) {
             return new AspectRatio(null, 16.0f, 9.0f);
         } else {
-            return new AspectRatio(activity.getString(R.string.ucrop_label_original).toUpperCase(),
-                    CropImageView.SOURCE_IMAGE_ASPECT_RATIO, 1.0f);
+            float v1 = Float.parseFloat(name.split("x", 0)[0]);
+            float v2 = Float.parseFloat(name.split("x", 0)[1]);
+            return new AspectRatio(null, v1, v2);
+            // return new AspectRatio(activity.getString(R.string.ucrop_label_original).toUpperCase(),
+            //         CropImageView.SOURCE_IMAGE_ASPECT_RATIO, 1.0f);
         }
     }
 }
