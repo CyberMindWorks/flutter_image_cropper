@@ -9,17 +9,17 @@ import 'utils.dart';
 /// A set of preset values can be used to setup the menu of crop aspect ratio
 /// options in the cropper view.
 ///
-// enum CropAspectRatioPreset {
-//   original,
-//   square,
-//   ratio3x2,
-//   ratio5x3,
-//   ratio4x3,
-//   ratio5x4,
-//   ratio7x5,
-//   ratio16x9,
-//   ratio5x2,
-// }
+enum CropAspectRatioPreset {
+  original,
+  square,
+  ratio3x2,
+  ratio5x3,
+  ratio4x3,
+  ratio5x4,
+  ratio7x5,
+  ratio16x9,
+  ratio5x2,
+}
 
 ///
 /// Crop style options. There're two supported styles, rectangle and circle.
@@ -110,9 +110,10 @@ class AndroidUiSettings {
 
   /// desired aspect ratio is applied (from the list of given aspect ratio presets)
   /// when starting the cropper
-  // final CropAspectRatioPreset? initAspectRatio;
+  final CropAspectRatioPreset? initAspectRatio;
 
   const AndroidUiSettings({
+    this.initAspectRatio,
     this.toolbarTitle,
     this.toolbarColor,
     this.statusBarColor,
@@ -149,7 +150,7 @@ class AndroidUiSettings {
         'android.show_crop_grid': this.showCropGrid,
         'android.lock_aspect_ratio': this.lockAspectRatio,
         'android.hide_bottom_controls': this.hideBottomControls,
-        'android.init_aspect_ratio': null,
+        'android.init_aspect_ratio': this.initAspectRatio,
       };
 }
 
@@ -285,30 +286,30 @@ class IOSUiSettings {
       };
 }
 
-// String aspectRatioPresetName(CropAspectRatioPreset? preset) {
-//   switch (preset) {
-//     case CropAspectRatioPreset.original:
-//       return 'original';
-//     case CropAspectRatioPreset.square:
-//       return 'square';
-//     case CropAspectRatioPreset.ratio3x2:
-//       return '3x2';
-//     case CropAspectRatioPreset.ratio4x3:
-//       return '4x3';
-//     case CropAspectRatioPreset.ratio5x3:
-//       return '5x3';
-//     case CropAspectRatioPreset.ratio5x4:
-//       return '5x4';
-//     case CropAspectRatioPreset.ratio7x5:
-//       return '7x5';
-//     case CropAspectRatioPreset.ratio16x9:
-//       return '16x9';
-//     case CropAspectRatioPreset.ratio5x2:
-//       return '5x2';
-//     default:
-//       return 'original';
-//   }
-// }
+String aspectRatioPresetName(CropAspectRatioPreset? preset) {
+  switch (preset) {
+    case CropAspectRatioPreset.original:
+      return 'original';
+    case CropAspectRatioPreset.square:
+      return 'square';
+    case CropAspectRatioPreset.ratio3x2:
+      return '3x2';
+    case CropAspectRatioPreset.ratio4x3:
+      return '4x3';
+    case CropAspectRatioPreset.ratio5x3:
+      return '5x3';
+    case CropAspectRatioPreset.ratio5x4:
+      return '5x4';
+    case CropAspectRatioPreset.ratio7x5:
+      return '7x5';
+    case CropAspectRatioPreset.ratio16x9:
+      return '16x9';
+    case CropAspectRatioPreset.ratio5x2:
+      return '5x2';
+    default:
+      return 'original';
+  }
+}
 
 String cropStyleName(CropStyle style) {
   switch (style) {
