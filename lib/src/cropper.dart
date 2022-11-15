@@ -63,25 +63,24 @@ class ImageCropper {
     int? maxWidth,
     int? maxHeight,
     CropAspectRatio? aspectRatio,
-    List<String> aspectRatioPresets = const [
-      "1x3",
-      "1x2",
-      "square",
-      "3x2",
-      "16x9",
-      "5x2",
-    ],
-    //     List<CropAspectRatioPreset> aspectRatioPresets = const [
-    //   CropAspectRatioPreset.original,
-    //   CropAspectRatioPreset.square,
-    //   CropAspectRatioPreset.ratio3x2,
-    //   CropAspectRatioPreset.ratio4x3,
-    //   CropAspectRatioPreset.ratio16x9,
-    //   "5x2"
+    // List<String> aspectRatioPresets = const [
+    //   "1x3",
+    //   "1x2",
+    //   "square",
+    //   "3x2",
+    //   "16x9",
+    //   "5x2",
     // ],
+    List<CropAspectRatioPreset> aspectRatioPresets = const [
+      CropAspectRatioPreset.original,
+      // CropAspectRatioPreset.square,
+      // CropAspectRatioPreset.ratio3x2,
+      // CropAspectRatioPreset.ratio4x3,
+      // CropAspectRatioPreset.ratio16x9,
+    ],
     CropStyle cropStyle = CropStyle.rectangle,
     ImageCompressFormat compressFormat = ImageCompressFormat.jpg,
-    int compressQuality = 90,
+    int compressQuality = 100,
     AndroidUiSettings? androidUiSettings,
     IOSUiSettings? iosUiSettings,
   }) async {
@@ -96,9 +95,9 @@ class ImageCropper {
       'max_height': maxHeight,
       'ratio_x': aspectRatio?.ratioX,
       'ratio_y': aspectRatio?.ratioY,
-      'aspect_ratio_presets': aspectRatioPresets,
-      // 'aspect_ratio_presets':
-      //     aspectRatioPresets.map<String>(aspectRatioPresetName).toList(),
+      // 'aspect_ratio_presets': aspectRatioPresets,
+      'aspect_ratio_presets':
+          aspectRatioPresets.map<String>(aspectRatioPresetName).toList(),
       'crop_style': cropStyleName(cropStyle),
       'compress_format': compressFormatName(compressFormat),
       'compress_quality': compressQuality,
