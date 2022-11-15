@@ -80,7 +80,7 @@ class ImageCropper {
     ],
     CropStyle cropStyle = CropStyle.rectangle,
     ImageCompressFormat compressFormat = ImageCompressFormat.jpg,
-    int compressQuality = 90,
+    int compressQuality = 100,
     AndroidUiSettings? androidUiSettings,
     IOSUiSettings? iosUiSettings,
   }) async {
