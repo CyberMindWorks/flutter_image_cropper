@@ -219,10 +219,10 @@ class AndroidUiSettings extends PlatformUiSettings {
     this.cropStyle = CropStyle.rectangle,
     this.aspectRatioPresets = const [
       CropAspectRatioPreset.original,
-      CropAspectRatioPreset.square,
-      CropAspectRatioPreset.ratio3x2,
-      CropAspectRatioPreset.ratio4x3,
-      CropAspectRatioPreset.ratio16x9
+      // CropAspectRatioPreset.square,
+      // CropAspectRatioPreset.ratio3x2,
+      // CropAspectRatioPreset.ratio4x3,
+      // CropAspectRatioPreset.ratio16x9
     ],
   });
 
